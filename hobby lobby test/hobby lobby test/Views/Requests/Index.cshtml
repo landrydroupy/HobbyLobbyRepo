@@ -1,0 +1,72 @@
+﻿@model IEnumerable<hobby_lobby_test.Models.Request>
+
+@{
+    ViewBag.Title = "Transportation";
+}
+
+<h2>Transportation View</h2>
+
+<p>
+    <a class="nav-link" href="/Pickups/Index">View Pickups</a>  
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Pickup.PickupNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToteQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CartonQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoadLockQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Store.Location)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Pickup.PickupNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToteQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CartonQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoadLockQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreationDate)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Store.Location)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RequestNumber }) |
+            
+            @Html.ActionLink("Delete", "Delete", new { id=item.RequestNumber })
+        </td>
+    </tr>
+}
+
+</table>
